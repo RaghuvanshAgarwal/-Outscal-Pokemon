@@ -34,7 +34,7 @@ int main() {
             chosen_pokemon = "Squirtle";
         default:
             std::cout << "[" << player_name << "] I am not able to choose, Professor! Can you choose it for me?" << std::endl;
-            std::cout << "[Professor Oak] Very well, I am giving you Pikachu!!" << std::endl;
+            std::cout << "[Professor Oak] Hmm, that doesn't seem right. Let me choose for you… Just kidding! Let's go with Pikachu, the surprise guest!" << std::endl;
             chosen_pokemon = "Pikachu";
             break;
     }
