@@ -20,7 +20,10 @@ int main() {
     std::cout << "[Professor Oak] Today is a momentous day—you’ll be choosing your very first Pokémon." << std::endl;
     std::cout << "[Professor Oak] Every great Trainer remembers this moment for the rest of their lives." << std::endl;
     std::cout << "[Professor Oak] So, choose wisely, young one!" << std::endl;
-    std::cout << "1) Bulbasaur\n2) Charmander\n3) Squirtle" << std::endl;
+    std::cout << "1) Bulbasaur - The grass type. Calm and collected! " << std::endl;
+    std::cout << "2) Charmander - The fire type. A real hothead! " << std::endl;
+    std::cout << "3) Squirtle - The water type. Cool as a cucumber! " << std::endl;
+
     std::cout << "Enter the number" << std::endl;
     int choice;
     std::cin >> choice;
@@ -34,6 +37,7 @@ int main() {
             break;
         case 3:
             chosen_pokemon = Squirtle;
+            break;
         default:
             chosen_pokemon = InvalidChoice;
             break;
