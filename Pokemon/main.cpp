@@ -16,20 +16,27 @@ int main() {
     std::cout << "Enter the number" << std::endl;
     int choice;
     std::cin >> choice;
-    if (choice == 1) {
-        std::cout << "[" << player_name << "] I want Bulbasaur" << std::endl;
-        std::cout << "[Professor Oak] Excellent choice by going with Bulbasaur" << std::endl;
-    }
-    else if (choice == 2) {
-        std::cout << "[" << player_name << "] I want Charmander" << std::endl;
-        std::cout << "[Professor Oak] Charmander, A fiery choice" << std::endl;
-    }
-    else if (choice == 3) {
-        std::cout << "[" << player_name << "] I want Squirtle" << std::endl;
-        std::cout << "[Professor Oak] Squirtle is a wonderful Pokemon to start" << std::endl;
-    }
-    else {
-        std::cout << "Invalid choice, restart the Game" << std::endl;
+    std::string chosen_pokemon;
+    switch (choice) {
+        case 1:
+            std::cout << "[" << player_name << "] I want Bulbasaur" << std::endl;
+            std::cout << "[Professor Oak] Excellent choice by going with Bulbasaur" << std::endl;
+            chosen_pokemon = "Bulbasaur";
+            break;
+        case 2:
+            std::cout << "[" << player_name << "] I want Charmander" << std::endl;
+            std::cout << "[Professor Oak] Charmander, A fiery choice" << std::endl;
+            chosen_pokemon = "Charmander";
+            break;
+        case 3:
+            std::cout << "[" << player_name << "] I want Squirtle" << std::endl;
+            std::cout << "[Professor Oak] Squirtle is a wonderful Pokemon to start" << std::endl;
+            chosen_pokemon = "Squirtle";
+        default:
+            std::cout << "[" << player_name << "] I am not able to choose, Professor! Can you choose it for me?" << std::endl;
+            std::cout << "[Professor Oak] Very well, I am giving you Pikachu!!" << std::endl;
+            chosen_pokemon = "Pikachu";
+            break;
     }
     return 0;
 }
