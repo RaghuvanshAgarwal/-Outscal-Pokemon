@@ -5,6 +5,6 @@ int main() {
     std::cout << "Enter your name: ";
     std::string player_name;
     std::cin >> player_name;
-    std::cout << "Great Start " << player_name << ", looks like you have understood the main() function properly now!";
+    std::cout << "Ready for a Great Adventure and Battles? " << player_name << std::endl;
     return 0;
 }
