@@ -22,7 +22,7 @@ public:
     PokemonType type;
     int health;
 
-    Pokemon() : type(PokemonType::Normal), health(0) {}
+    Pokemon() :name("Unknown"), type(PokemonType::Normal), health(0) {}
     Pokemon(std::string p_name, PokemonType p_type, int p_health) : name(p_name), type(p_type), health(p_health) {}
 
     void attack() const {
@@ -60,6 +60,10 @@ class ProfessorOak {
 
 public:
     std::string name;
+
+    ProfessorOak(std::string p_name) : name(p_name) {}
+    ProfessorOak(): name("") {}
+
     void greetPlayer(Player& p) {
         std::cout << "["<< name << "]" << " Ah, " << p.name << "!" << std::endl;
         std::cout << "["<< name << "]" << " Welcome to the world of Pokémon!" << std::endl;
@@ -102,14 +106,9 @@ public:
 };
 
 int main() {
-    Player player;
-    ProfessorOak professorOak;
-    Pokemon placeholder_pokemon;
-    placeholder_pokemon.name = "Pikachu";
-    placeholder_pokemon.type = PokemonType::Electric;
-    placeholder_pokemon.health = 40;
-    player.name = "Trainer";
-    professorOak.name = "Professor Oak";
+    ProfessorOak professorOak("Professor Oak");
+    Pokemon placeholder_pokemon ("Placeholder", PokemonType::Fire, 0);
+    Player player ("Trainer", placeholder_pokemon);
     professorOak.greetPlayer(player);
     professorOak.offerPokemonChoices(player);
     std::cout << "[" << professorOak.name << "] " << player.chosen_pokemon.name << " and you, " << player.name << ", are going to be the best of friends!\n";
