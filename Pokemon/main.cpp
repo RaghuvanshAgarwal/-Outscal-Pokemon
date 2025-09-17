@@ -22,7 +22,7 @@ public:
     PokemonType type;
     int health;
 
-    Pokemon() :name("Unknown"), type(PokemonType::Normal), health(0) {}
+    Pokemon() :name("Pikachu"), type(PokemonType::Electric), health(10) {}
     Pokemon(std::string p_name, PokemonType p_type, int p_health) : name(p_name), type(p_type), health(p_health) {}
     Pokemon(const Pokemon& pokemon): name(pokemon.name), type(pokemon.type), health(pokemon.health) {}
     ~Pokemon() {
@@ -43,6 +43,7 @@ public:
     Player(): name("Trainer"), chosen_pokemon(Pokemon()) {
         std::cout << "[LOG] A new player named " << name << " has been created" << std::endl;
     }
+    Player(const Player& player): name(player.name), chosen_pokemon(player.chosen_pokemon) {}
 
     void choosePokemon(int choice) {
         switch ((PokemonChoice)choice) {
