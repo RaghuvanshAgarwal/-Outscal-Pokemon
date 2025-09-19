@@ -267,6 +267,6 @@ int main() {
     professor.greetPlayer(player);
     professor.offerPokemonChoices(player);
     professor.explainMainQuest(player);
-    Utils::info("[Placeholder for the game loop]");
+    gameLoop(player);
     return 0;
 }
