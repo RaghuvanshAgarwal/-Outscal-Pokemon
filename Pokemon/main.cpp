@@ -1,29 +1,7 @@
 #include <iostream>
 #include "PokemonType.h"
 #include "PokemonChoice.h"
-
-class Utils {
-public:
-    static std::string getPrintName(const std::string &name) {
-        return "[" + name + "] ";
-    }
-
-    static void info(const std::string &info) {
-        std::cout << "[INFO] " << info << std::endl;
-    }
-
-    static void waitForEnter() {
-        std::cin.get();
-    }
-
-    static void clearScreen() {
-#ifdef _WIN32
-        system("cls");
-#else
-        (void) system("clear");
-#endif
-    }
-};
+#include "Utility.h"
 
 class Pokemon {
 public:
@@ -103,7 +81,9 @@ public:
                 std::endl;
         getline(std::cin, p.name);
         std::cout << Utils::getPrintName(name) << "Ah, " << p.name << "! What a fantastic name!";
+        Utils::clearInputBuffer();
         Utils::waitForEnter();
+        Utils::clearScreen();
     }
 
     void offerPokemonChoices(Player &p) {
@@ -140,10 +120,14 @@ public:
                         "Well, lets see, Ahhh.... here it is, take Pikachu, an electric Pokemon" << std::endl;
                 break;
         }
+        Utils::clearInputBuffer();
+        Utils::waitForEnter();
+        Utils::clearScreen();
     }
 
     void explainMainQuest(const Player &p) {
         std::cin.ignore();
+        Utils::clearScreen();
         std::cout << Utils::getPrintName(name) << "Oak-ay " << p.name <<
                 ", I am about to explain you about your upcoming grand adventure.";
         Utils::waitForEnter();
