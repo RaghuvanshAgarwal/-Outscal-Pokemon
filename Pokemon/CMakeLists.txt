@@ -4,4 +4,5 @@ project(Pokemon)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Pokemon main.cpp
-        header.h)
+        PokemonType.h
+)

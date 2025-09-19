@@ -1,4 +1,5 @@
 #include <iostream>
+#include "PokemonType.h"
 
 enum class PokemonChoice {
     InvalidChoice,
@@ -7,13 +8,7 @@ enum class PokemonChoice {
     Squirtle,
 };
 
-enum class PokemonType {
-    Fire,
-    Electric,
-    Water,
-    Earth,
-    Normal,
-};
+
 
 
 class Utils {
@@ -269,4 +264,4 @@ int main() {
     professor.explainMainQuest(player);
     gameLoop(player);
     return 0;
-#include "header.h"
+}
