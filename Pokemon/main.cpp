@@ -269,4 +269,4 @@ int main() {
     professor.explainMainQuest(player);
     gameLoop(player);
     return 0;
-}
+#include "header.h"
