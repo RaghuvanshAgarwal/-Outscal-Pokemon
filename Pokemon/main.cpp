@@ -1,15 +1,6 @@
 #include <iostream>
 #include "PokemonType.h"
-
-enum class PokemonChoice {
-    InvalidChoice,
-    Charmander,
-    Bulbasaur,
-    Squirtle,
-};
-
-
-
+#include "PokemonChoice.h"
 
 class Utils {
 public:
