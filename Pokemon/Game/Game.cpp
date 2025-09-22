@@ -6,11 +6,40 @@
 
 #include <iostream>
 
+#include "../Grass.h"
+#include "../Enums/PokemonType.h"
 #include "../Player/Player.h"
 #include "../Utility/Utility.h"
 
-void Game::gameLoop(Player& player) {
-        int choice;
+void Game::gameLoop(Player &player) {
+
+    Grass forest_grass = {
+        "Forest",
+        {
+            {
+                "Pidgey", PokemonType::Normal, 40
+            },
+            {
+                "Caterpie", PokemonType::Bug, 35
+            }
+        },
+        30
+    };
+
+    Grass cave_grass = {
+        "Cave",
+        {
+            {
+                "Zubat", PokemonType::Posion, 30
+            },
+            {
+                "Geodude", PokemonType::Rock, 40
+            }
+        },
+        80
+    };
+
+    int choice;
     bool keepPlaying = true;
 
     while (keepPlaying) {

@@ -10,5 +10,8 @@ enum class PokemonType {
     Water,
     Earth,
     Normal,
+    Bug,
+    Posion,
+    Rock
 };
 #endif //POKEMON_POKEMONTYPE_H
