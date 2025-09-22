@@ -4,12 +4,16 @@
 
 #ifndef POKEMON_GAME_H
 #define POKEMON_GAME_H
-
+#include "../Grass.h"
 
 class Player;
 
 class Game {
+
 public:
+    Grass forest_grass;
+
+    Game();
     void gameLoop(Player& player);
 };
 

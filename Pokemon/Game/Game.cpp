@@ -10,9 +10,23 @@
 #include "../Enums/PokemonType.h"
 #include "../Player/Player.h"
 #include "../Utility/Utility.h"
+#include "../WildEncounterManager/WildEncounterManager.h"
+
+
+Game::Game() {
+    forest_grass = {
+        "Forest",
+        {
+            Pokemon("Pidgey", PokemonType::Normal, 40),
+            Pokemon("Caterpie", PokemonType::Bug, 35),
+            Pokemon("Zubat", PokemonType::Posion, 30)
+        },
+        70
+    };
+}
+
 
 void Game::gameLoop(Player &player) {
-
     Grass forest_grass = {
         "Forest",
         {
@@ -48,9 +62,11 @@ void Game::gameLoop(Player &player) {
 
         // Process the player's choice and display the corresponding message
         switch (choice) {
-            case 1:
-                std::cout << "You look around... but all the wild Pokémon are on vacation. Maybe try again later?" <<
-                        std::endl;
+            case 1: {
+                WildEncounterManager encounter_manager;
+                Pokemon wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
+                std::cout << "A wild " << wild_pokemon.name << " appeared!" << std::endl;
+            }
                 break;
             case 2:
                 std::cout <<

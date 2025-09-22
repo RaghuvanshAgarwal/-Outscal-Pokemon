@@ -17,4 +17,6 @@ add_executable(Pokemon main.cpp
         Game/Game.cpp
         Game/Game.h
         Grass.h
+        WildEncounterManager/WildEncounterManager.cpp
+        WildEncounterManager/WildEncounterManager.h
 )
