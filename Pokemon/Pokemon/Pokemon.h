@@ -18,6 +18,8 @@ public:
 
     Pokemon(std::string p_name, PokemonType p_type, int p_health);
 
+    Pokemon(std::string p_name, PokemonType p_type);
+
     Pokemon(const Pokemon &pokemon);
 
     void attack() const;

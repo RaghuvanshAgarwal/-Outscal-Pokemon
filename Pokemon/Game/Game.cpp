@@ -17,24 +17,14 @@ void Game::gameLoop(Player &player) {
         "Forest",
         {
             {
-                "Pidgey", PokemonType::Normal, 40
+                "Pidgey", PokemonType::Normal
             },
             {
-                "Caterpie", PokemonType::Bug, 35
-            }
-        },
-        30
-    };
-
-    Grass cave_grass = {
-        "Cave",
-        {
-            {
-                "Zubat", PokemonType::Posion, 30
+                "Caterpie", PokemonType::Bug
             },
             {
-                "Geodude", PokemonType::Rock, 40
-            }
+                "Zubat", PokemonType::Posion
+            },
         },
         80
     };
