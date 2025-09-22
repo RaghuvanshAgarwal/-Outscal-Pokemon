@@ -19,4 +19,6 @@ add_executable(Pokemon main.cpp
         Grass.h
         WildEncounterManager/WildEncounterManager.cpp
         WildEncounterManager/WildEncounterManager.h
+        BattleManager/BattleManager.cpp
+        BattleManager/BattleManager.h
 )
