@@ -6,14 +6,13 @@
 #define POKEMON_GRASS_H
 #include <vector>
 
-
-class Pokemon;
-
-struct Grass {
-    std::string environment_type;
-    std::vector<Pokemon> wild_pokemons;
-    int encounter_rate;
-};
+namespace N_Pokemon {
+    struct Grass {
+        std::string environment_type;
+        std::vector<Pokemon> wild_pokemons;
+        int encounter_rate;
+    };
+}
 
 
 #endif //POKEMON_GRASS_H

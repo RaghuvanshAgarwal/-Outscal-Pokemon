@@ -14,26 +14,27 @@
 #include "../../include/Battle/WildEncounterManager.h"
 
 
-Game::Game() {
+namespace N_Main {
+    Game::Game() {
     forest_grass = {
         "Forest",
         {
-            Pokemon::Builder().setName("Pidgey").setType(PokemonType::Normal).set_health(40).set_max_health(100).set_attack_power(10).build(),
-            Pokemon::Builder().setName("Caterpie").setType(PokemonType::Bug).set_health(35).set_max_health(100).set_attack_power(5).build(),
-            Pokemon::Builder().setName("Zubat").setType(PokemonType::Posion).set_health(30).set_max_health(100).set_attack_power(6).build(),
+            N_Pokemon::Pokemon::Builder().setName("Pidgey").setType(N_Pokemon::PokemonType::Normal).set_health(40).set_max_health(100).set_attack_power(10).build(),
+            N_Pokemon::Pokemon::Builder().setName("Caterpie").setType(N_Pokemon::PokemonType::Bug).set_health(35).set_max_health(100).set_attack_power(5).build(),
+            N_Pokemon::Pokemon::Builder().setName("Zubat").setType(N_Pokemon::PokemonType::Posion).set_health(30).set_max_health(100).set_attack_power(6).build(),
         },
         70
     };
 }
 
 
-void Game::gameLoop(Player &player) {
+void Game::gameLoop(N_Player::Player &player) {
     int choice;
     bool keepPlaying = true;
 
     while (keepPlaying) {
         // Clear console before showing options
-        Utils::clearScreen();
+        N_Utility::Utils::clearScreen();
 
         // Display options to the player
         std::cout << "\nWhat would you like to do next, " << player.name << "?\n";
@@ -48,9 +49,9 @@ void Game::gameLoop(Player &player) {
         // Process the player's choice and display the corresponding message
         switch (choice) {
             case 1: {
-                WildEncounterManager encounter_manager;
-                BattleManager battle_manager;
-                Pokemon wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
+                N_Battle::WildEncounterManager encounter_manager;
+                N_Battle::BattleManager battle_manager;
+                N_Pokemon::Pokemon wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
                 battle_manager.start_battle(player, wild_pokemon);
             }
                 break;
@@ -87,8 +88,9 @@ void Game::gameLoop(Player &player) {
 
         // Wait for Enter key before the screen is cleared and the menu is shown
         // again
-        Utils::waitForEnter();
+        N_Utility::Utils::waitForEnter();
     }
 
     std::cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+}
 }

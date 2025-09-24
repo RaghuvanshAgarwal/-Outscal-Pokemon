@@ -4,14 +4,16 @@
 
 #ifndef POKEMON_POKEMONTYPE_H
 #define POKEMON_POKEMONTYPE_H
-enum class PokemonType {
-    Fire,
-    Electric,
-    Water,
-    Earth,
-    Normal,
-    Bug,
-    Posion,
-    Rock
-};
+namespace N_Pokemon {
+    enum class PokemonType {
+        Fire,
+        Electric,
+        Water,
+        Earth,
+        Normal,
+        Bug,
+        Posion,
+        Rock
+    };
+}
 #endif //POKEMON_POKEMONTYPE_H

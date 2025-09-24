@@ -6,18 +6,27 @@
 #define POKEMON_BATTLEMANAGER_H
 #include "BattleState.h"
 
-class Player;
-class Pokemon;
+namespace N_Player {
+    class Player;
+}
 
-class BattleManager {
-    BattleState battle_state;
-    void battle();
-    void handle_battle_outcome() const;
-    void update_battle_state();
+namespace N_Pokemon {
+    class Pokemon;
+}
+
+
+
+namespace N_Battle {
+    class BattleManager {
+        BattleState battle_state;
+        void battle();
+        void handle_battle_outcome() const;
+        void update_battle_state();
     public:
-    void start_battle(Player& player, Pokemon& wild_pokemon);
+        void start_battle(N_Player::Player& player, N_Pokemon::Pokemon& wild_pokemon);
 
-};
+    };
+}
 
 
 #endif //POKEMON_BATTLEMANAGER_H

@@ -6,14 +6,19 @@
 #define POKEMON_WILDENCOUNTERMANAGER_H
 
 
-class Pokemon;
-struct Grass;
 
-class WildEncounterManager {
-public:
-    WildEncounterManager();
-    Pokemon getRandomPokemonFromGrass(const Grass& grass);
-};
+namespace N_Pokemon {
+    struct Grass;
+    class Pokemon;
+}
+
+namespace N_Battle {
+    class WildEncounterManager {
+    public:
+        WildEncounterManager();
+        N_Pokemon::Pokemon getRandomPokemonFromGrass(const N_Pokemon::Grass& grass);
+    };
+}
 
 
 #endif //POKEMON_WILDENCOUNTERMANAGER_H

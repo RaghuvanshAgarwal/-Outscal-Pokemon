@@ -8,18 +8,19 @@
 
 #include "../../Pokemon/Pokemon.h"
 
+namespace N_Player {
+    class Player {
+    public:
+        std::string name;
+        N_Pokemon::Pokemon chosen_pokemon;
 
-class Player {
-public:
-    std::string name;
-    Pokemon chosen_pokemon;
+        Player(std::string p_name, N_Pokemon::Pokemon p_chosen_pokemon);
 
-    Player(std::string p_name, Pokemon p_chosen_pokemon);
+        Player();
 
-    Player();
+        Player(const Player &player);
 
-    Player(const Player &player);
-
-    void choosePokemon(int choice);
-};
+        void choosePokemon(int choice);
+    };
+}
 #endif //POKEMON_PLAYER_H

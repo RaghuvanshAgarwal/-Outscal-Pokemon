@@ -6,20 +6,24 @@
 #define POKEMON_PROFESSOROAK_H
 #include <string>
 
-class Player;
+#include "Player/Player.h"
 
-class ProfessorOak {
-public:
-    std::string name;
 
-    ProfessorOak(std::string p_name);
 
-    ProfessorOak();
+namespace N_Characters {
+    class ProfessorOak {
+    public:
+        std::string name;
 
-    void greetPlayer(Player &p) const;
+        ProfessorOak(std::string p_name);
 
-    void offerPokemonChoices(Player &p) const;
+        ProfessorOak();
 
-    void explainMainQuest(const Player &p) const;
-};
+        void greetPlayer(N_Player::Player &p) const;
+
+        void offerPokemonChoices(N_Player::Player &p) const;
+
+        void explainMainQuest(const N_Player::Player &p) const;
+    };
+}
 #endif //POKEMON_PROFESSOROAK_H
