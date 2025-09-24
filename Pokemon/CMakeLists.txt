@@ -22,4 +22,12 @@ add_executable(Pokemon main.cpp
         src/Battle/BattleManager.cpp
         include/Battle/BattleManager.h
         include/Battle/BattleState.h
+        include/Pokemon/Pokemons/Pikachu.h
+        src/Pokemon/Pokemons/Pikachu.cpp
+        include/Pokemon/Pokemons/Pidgey.h
+        src/Pokemon/Pokemons/Pidgey.cpp
+        include/Pokemon/Pokemons/Caterpie.h
+        src/Pokemon/Pokemons/Caterpie.cpp
+        include/Pokemon/Pokemons/Zubat.h
+        src/Pokemon/Pokemons/Zubat.cpp
 )
