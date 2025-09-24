@@ -2,53 +2,39 @@
 // Created by Raghuvansh Agarwal on 22/09/25.
 //
 
-#include "Game.h"
+#include "../../include/Main/Game.h"
 
 #include <iostream>
 
-#include "../Grass.h"
-#include "../Enums/PokemonType.h"
-#include "../Player/Player.h"
-#include "../Utility/Utility.h"
-#include "../WildEncounterManager/WildEncounterManager.h"
+#include "../../include/Pokemon/Grass.h"
+#include "../../include/Battle/BattleManager.h"
+#include "../../include/Pokemon/PokemonType.h"
+#include "../../include/Character/Player/Player.h"
+#include "../../include/Utility/Utility.h"
+#include "../../include/Battle/WildEncounterManager.h"
 
 
-Game::Game() {
+namespace N_Main {
+    Game::Game() {
     forest_grass = {
         "Forest",
         {
-            Pokemon("Pidgey", PokemonType::Normal, 40),
-            Pokemon("Caterpie", PokemonType::Bug, 35),
-            Pokemon("Zubat", PokemonType::Posion, 30)
+            N_Pokemon::Pokemon::Builder().setName("Pidgey").setType(N_Pokemon::PokemonType::Normal).set_health(40).set_max_health(100).set_attack_power(10).build(),
+            N_Pokemon::Pokemon::Builder().setName("Caterpie").setType(N_Pokemon::PokemonType::Bug).set_health(35).set_max_health(100).set_attack_power(5).build(),
+            N_Pokemon::Pokemon::Builder().setName("Zubat").setType(N_Pokemon::PokemonType::Posion).set_health(30).set_max_health(100).set_attack_power(6).build(),
         },
         70
     };
 }
 
 
-void Game::gameLoop(Player &player) {
-    Grass forest_grass = {
-        "Forest",
-        {
-            {
-                "Pidgey", PokemonType::Normal
-            },
-            {
-                "Caterpie", PokemonType::Bug
-            },
-            {
-                "Zubat", PokemonType::Posion
-            },
-        },
-        80
-    };
-
+void Game::gameLoop(N_Player::Player &player) {
     int choice;
     bool keepPlaying = true;
 
     while (keepPlaying) {
         // Clear console before showing options
-        Utils::clearScreen();
+        N_Utility::Utils::clearScreen();
 
         // Display options to the player
         std::cout << "\nWhat would you like to do next, " << player.name << "?\n";
@@ -63,15 +49,16 @@ void Game::gameLoop(Player &player) {
         // Process the player's choice and display the corresponding message
         switch (choice) {
             case 1: {
-                WildEncounterManager encounter_manager;
-                Pokemon wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
-                std::cout << "A wild " << wild_pokemon.name << " appeared!" << std::endl;
+                N_Battle::WildEncounterManager encounter_manager;
+                N_Battle::BattleManager battle_manager;
+                N_Pokemon::Pokemon wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
+                battle_manager.start_battle(player, wild_pokemon);
             }
                 break;
             case 2:
-                std::cout <<
-                        "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokémon will have to tough it out for now!"
-                        << std::endl;
+                std::cout << "You have reached the PokeCenter" << std::endl;
+                player.chosen_pokemon.heal();
+                std::cout << player.chosen_pokemon.name << " has fully healed" << std::endl;
                 break;
             case 3:
                 std::cout <<
@@ -101,8 +88,9 @@ void Game::gameLoop(Player &player) {
 
         // Wait for Enter key before the screen is cleared and the menu is shown
         // again
-        Utils::waitForEnter();
+        N_Utility::Utils::waitForEnter();
     }
 
     std::cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+}
 }

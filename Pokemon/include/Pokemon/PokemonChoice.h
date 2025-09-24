@@ -4,10 +4,12 @@
 
 #ifndef POKEMON_POKEMONCHOICE_H
 #define POKEMON_POKEMONCHOICE_H
-enum class PokemonChoice {
-    InvalidChoice,
-    Charmander,
-    Bulbasaur,
-    Squirtle,
-};
+namespace N_Pokemon {
+    enum class PokemonChoice {
+        InvalidChoice,
+        Charmander,
+        Bulbasaur,
+        Squirtle,
+    };
+}
 #endif //POKEMON_POKEMONCHOICE_H
