@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Enums/PokemonType.h"
 #include "Game/Game.h"
 #include "Utility/Utility.h"
 #include "Player/Player.h"
@@ -7,7 +6,8 @@
 #include "ProfessorOak/ProfessorOak.h"
 
 int main() {
-    Pokemon charmander("Charmander", PokemonType::Fire, 100); // Using parameterized constructor
+    Pokemon charmander = Pokemon::Builder().setName("Charmander").set_health(20).set_max_health(100).set_attack_power(10).build();
+    std::cout << charmander.health << std::endl;
     ProfessorOak professor("Professor Oak");
     Player player("Ash", charmander);
     professor.greetPlayer(player);

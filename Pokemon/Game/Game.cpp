@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include "../Grass.h"
+#include "../BattleManager/BattleManager.h"
 #include "../Enums/PokemonType.h"
 #include "../Player/Player.h"
 #include "../Utility/Utility.h"
@@ -17,9 +18,9 @@ Game::Game() {
     forest_grass = {
         "Forest",
         {
-            Pokemon("Pidgey", PokemonType::Normal, 40),
-            Pokemon("Caterpie", PokemonType::Bug, 35),
-            Pokemon("Zubat", PokemonType::Posion, 30)
+            Pokemon::Builder().setName("Pidgey").setType(PokemonType::Normal).set_health(40).set_max_health(100).set_attack_power(10).build(),
+            Pokemon::Builder().setName("Caterpie").setType(PokemonType::Bug).set_health(35).set_max_health(100).set_attack_power(5).build(),
+            Pokemon::Builder().setName("Zubat").setType(PokemonType::Posion).set_health(30).set_max_health(100).set_attack_power(6).build(),
         },
         70
     };
@@ -27,22 +28,6 @@ Game::Game() {
 
 
 void Game::gameLoop(Player &player) {
-    Grass forest_grass = {
-        "Forest",
-        {
-            {
-                "Pidgey", PokemonType::Normal
-            },
-            {
-                "Caterpie", PokemonType::Bug
-            },
-            {
-                "Zubat", PokemonType::Posion
-            },
-        },
-        80
-    };
-
     int choice;
     bool keepPlaying = true;
 
@@ -64,14 +49,15 @@ void Game::gameLoop(Player &player) {
         switch (choice) {
             case 1: {
                 WildEncounterManager encounter_manager;
+                BattleManager battle_manager;
                 Pokemon wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
-                std::cout << "A wild " << wild_pokemon.name << " appeared!" << std::endl;
+                battle_manager.start_battle(player, wild_pokemon);
             }
                 break;
             case 2:
-                std::cout <<
-                        "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokémon will have to tough it out for now!"
-                        << std::endl;
+                std::cout << "You have reached the PokeCenter" << std::endl;
+                player.chosen_pokemon.heal();
+                std::cout << player.chosen_pokemon.name << " has fully healed" << std::endl;
                 break;
             case 3:
                 std::cout <<
