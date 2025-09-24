@@ -1,12 +1,12 @@
 //
 // Created by Raghuvansh Agarwal on 19/09/25.
 //
-#include "Player.h"
-#include "../Enums/PokemonChoice.h"
-#include "../Enums/PokemonType.h"
+#include "../../../include/Character/Player/Player.h"
+#include "../../../include/Pokemon/PokemonChoice.h"
+#include "../../../include/Pokemon/PokemonType.h"
 #include <iostream>
 
-#include "../Pokemon/Pokemon.h"
+#include "../../../include/Pokemon/Pokemon.h"
 
 
 Player::Player(std::string p_name, Pokemon p_chosen_pokemon) : name(p_name), chosen_pokemon(p_chosen_pokemon) {

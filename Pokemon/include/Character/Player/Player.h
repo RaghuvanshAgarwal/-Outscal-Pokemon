@@ -6,7 +6,7 @@
 #define POKEMON_PLAYER_H
 #include <string>
 
-#include "../Pokemon/Pokemon.h"
+#include "../../Pokemon/Pokemon.h"
 
 
 class Player {

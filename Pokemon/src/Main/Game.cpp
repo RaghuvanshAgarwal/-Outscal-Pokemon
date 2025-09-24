@@ -2,16 +2,16 @@
 // Created by Raghuvansh Agarwal on 22/09/25.
 //
 
-#include "Game.h"
+#include "../../include/Main/Game.h"
 
 #include <iostream>
 
-#include "../Grass.h"
-#include "../BattleManager/BattleManager.h"
-#include "../Enums/PokemonType.h"
-#include "../Player/Player.h"
-#include "../Utility/Utility.h"
-#include "../WildEncounterManager/WildEncounterManager.h"
+#include "../../include/Pokemon/Grass.h"
+#include "../../include/Battle/BattleManager.h"
+#include "../../include/Pokemon/PokemonType.h"
+#include "../../include/Character/Player/Player.h"
+#include "../../include/Utility/Utility.h"
+#include "../Battle/WildEncounterManager.h"
 
 
 Game::Game() {

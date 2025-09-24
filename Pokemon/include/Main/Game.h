@@ -4,7 +4,7 @@
 
 #ifndef POKEMON_GAME_H
 #define POKEMON_GAME_H
-#include "../Grass.h"
+#include "../Pokemon/Grass.h"
 
 class Player;
 

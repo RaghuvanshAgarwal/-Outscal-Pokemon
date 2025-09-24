@@ -2,10 +2,10 @@
 // Created by Raghuvansh Agarwal on 19/09/25.
 //
 
-#include "Pokemon.h"
+#include "../../include/Pokemon/Pokemon.h"
 #include <iostream>
 
-#include "../Enums/PokemonType.h"
+#include "../../include/Pokemon/PokemonType.h"
 
 Pokemon::Pokemon(): name("Pikachu"), type(PokemonType::Electric), health(100), max_health(100) {}
 Pokemon::Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_max_health, int p_attack_power) : name(p_name), type(p_type), health(p_health), max_health(p_max_health), attack_power(p_attack_power) {}

@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include "../Enums/PokemonType.h"
+#include "PokemonType.h"
 enum class PokemonType;
 
 class Pokemon {

@@ -2,14 +2,14 @@
 // Created by Raghuvansh Agarwal on 19/09/25.
 //
 
-#include "ProfessorOak.h"
+#include "../../include/Character/ProfessorOak.h"
 
 #include <iostream>
 #include <string>
 
-#include "../Player/Player.h"
-#include "../Enums/PokemonChoice.h"
-#include "../Utility/Utility.h"
+#include "../../include/Character/Player/Player.h"
+#include "../../include/Pokemon/PokemonChoice.h"
+#include "../../include/Utility/Utility.h"
 
 ProfessorOak::ProfessorOak(std::string p_name) : name(p_name) {
 }
