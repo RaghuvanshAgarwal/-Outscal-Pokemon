@@ -8,7 +8,6 @@
 #include <string>
 
 #include "PokemonType.h"
-enum class PokemonType;
 
 class Pokemon {
 

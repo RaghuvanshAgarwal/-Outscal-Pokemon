@@ -11,7 +11,7 @@
 #include "../../include/Pokemon/PokemonType.h"
 #include "../../include/Character/Player/Player.h"
 #include "../../include/Utility/Utility.h"
-#include "../Battle/WildEncounterManager.h"
+#include "../../include/Battle/WildEncounterManager.h"
 
 
 Game::Game() {

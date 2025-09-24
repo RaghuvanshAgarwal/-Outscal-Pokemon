@@ -5,10 +5,8 @@
 #include "../../include/Battle/BattleManager.h"
 
 #include <iostream>
-
 #include "../../include/Character/Player/Player.h"
 #include "../../include/Pokemon/Pokemon.h"
-#include "../../include/Utility/Utility.h"
 
 
 void BattleManager::start_battle(Player &player, Pokemon &wild_pokemon) {

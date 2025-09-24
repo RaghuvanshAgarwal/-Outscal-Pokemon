@@ -2,13 +2,13 @@
 // Created by Raghuvansh Agarwal on 22/09/25.
 //
 
-#include "../../src/Battle/WildEncounterManager.h"
+#include "../../include/Battle/WildEncounterManager.h"
 
 #include <cstdlib>
 #include <ctime>
 #include <__locale>
-#include "../Pokemon/Pokemon.h"
-#include "../Pokemon/Grass.h"
+#include "../../include/Pokemon/Pokemon.h"
+#include "../../include/Pokemon/Grass.h"
 
 WildEncounterManager::WildEncounterManager() {
     srand(time(nullptr));

@@ -12,7 +12,6 @@ public:
     static void info(const std::string &info);
     static void waitForEnter();
     static void clearScreen();
-
     static void clearInputBuffer();
 };
 #endif //POKEMON_UTILITY_H

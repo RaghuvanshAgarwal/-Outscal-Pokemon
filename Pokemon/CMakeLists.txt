@@ -17,8 +17,8 @@ add_executable(Pokemon main.cpp
         src/Main/Game.cpp
         include/Main/Game.h
         include/Pokemon/Grass.h
-        include/Battle/WildEncounterManager.cpp
-        src/Battle/WildEncounterManager.h
+        src/Battle/WildEncounterManager.cpp
+        include/Battle/WildEncounterManager.h
         src/Battle/BattleManager.cpp
         include/Battle/BattleManager.h
         include/Battle/BattleState.h
