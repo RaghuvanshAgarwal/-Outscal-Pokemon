@@ -13,7 +13,8 @@ namespace N_Pokemon {
         Normal,
         Bug,
         Posion,
-        Rock
+        Rock,
+        Grass
     };
 }
 #endif //POKEMON_POKEMONTYPE_H

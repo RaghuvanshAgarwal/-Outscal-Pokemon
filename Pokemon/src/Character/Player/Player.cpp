@@ -19,42 +19,18 @@ namespace N_Player {
     }
 
     void Player::choosePokemon(int choice) {
-        switch ((N_Pokemon::PokemonChoice) choice) {
+        switch (static_cast<N_Pokemon::PokemonChoice>(choice)) {
             case N_Pokemon::PokemonChoice::Charmander:
-                chosen_pokemon = N_Pokemon::Pokemon::Builder()
-                                 .setName("Charmander")
-                                 .setType(N_Pokemon::PokemonType::Fire)
-                                 .set_health(100)
-                                 .set_max_health(100)
-                                 .set_attack_power(10)
-                                 .build();
+                chosen_pokemon = N_Pokemon::Pokemon("Chamander", N_Pokemon::PokemonType::Fire, 100,10);
                 break;
             case N_Pokemon::PokemonChoice::Bulbasaur:
-                chosen_pokemon = N_Pokemon::Pokemon::Builder()
-                                 .setName("Bulbasaur")
-                                 .setType(N_Pokemon::PokemonType::Earth)
-                                 .set_health(100)
-                                 .set_max_health(100)
-                                 .set_attack_power(10)
-                                 .build();
+                chosen_pokemon = N_Pokemon::Pokemon("Bulbasaur", N_Pokemon::PokemonType::Earth, 100,10);
                 break;
             case N_Pokemon::PokemonChoice::Squirtle:
-                chosen_pokemon = N_Pokemon::Pokemon::Builder()
-                                 .setName("Squirtle")
-                                 .setType(N_Pokemon::PokemonType::Water)
-                                 .set_health(100)
-                                 .set_max_health(100)
-                                 .set_attack_power(14)
-                                 .build();
+                chosen_pokemon = N_Pokemon::Pokemon("Squirtle", N_Pokemon::PokemonType::Water, 100,14);
                 break;
             default:
-                chosen_pokemon = N_Pokemon::Pokemon::Builder()
-                                 .setName("Pikachu")
-                                 .setType(N_Pokemon::PokemonType::Electric)
-                                 .set_health(100)
-                                 .set_max_health(100)
-                                 .set_attack_power(35)
-                                 .build();
+                chosen_pokemon = N_Pokemon::Pokemon("Pikachu", N_Pokemon::PokemonType::Electric, 100,35);
                 break;
         }
     }

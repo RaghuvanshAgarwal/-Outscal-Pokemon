@@ -19,12 +19,13 @@ namespace N_Main {
     forest_grass = {
         "Forest",
         {
-            N_Pokemon::Pokemon::Builder().setName("Pidgey").setType(N_Pokemon::PokemonType::Normal).set_health(40).set_max_health(100).set_attack_power(10).build(),
-            N_Pokemon::Pokemon::Builder().setName("Caterpie").setType(N_Pokemon::PokemonType::Bug).set_health(35).set_max_health(100).set_attack_power(5).build(),
-            N_Pokemon::Pokemon::Builder().setName("Zubat").setType(N_Pokemon::PokemonType::Posion).set_health(30).set_max_health(100).set_attack_power(6).build(),
+            N_Pokemon::Pokemon("Pidgey",N_Pokemon::PokemonType::Normal, 100,20),
+            N_Pokemon::Pokemon("Caterpie",N_Pokemon::PokemonType::Bug, 100,10),
+            N_Pokemon::Pokemon("Zubat",N_Pokemon::PokemonType::Posion, 100,15)
         },
         70
     };
+
 }
 
 
@@ -50,7 +51,7 @@ void Game::gameLoop(N_Player::Player &player) {
         switch (choice) {
             case 1: {
                 N_Battle::WildEncounterManager encounter_manager;
-                N_Battle::BattleManager battle_manager;
+                N_Battle::BattleManager battle_manager{};
                 N_Pokemon::Pokemon wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
                 battle_manager.start_battle(player, wild_pokemon);
             }
@@ -58,7 +59,7 @@ void Game::gameLoop(N_Player::Player &player) {
             case 2:
                 std::cout << "You have reached the PokeCenter" << std::endl;
                 player.chosen_pokemon.heal();
-                std::cout << player.chosen_pokemon.name << " has fully healed" << std::endl;
+                std::cout << player.chosen_pokemon.get_name() << " has fully healed" << std::endl;
                 break;
             case 3:
                 std::cout <<
