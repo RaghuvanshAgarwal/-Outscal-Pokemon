@@ -16,6 +16,7 @@ namespace N_Player {
 
         Player(std::string p_name, N_Pokemon::Pokemon p_chosen_pokemon);
 
+
         Player();
 
         Player(const Player &player);
