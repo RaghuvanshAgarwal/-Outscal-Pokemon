@@ -21,16 +21,16 @@ namespace N_Player {
     void Player::choosePokemon(int choice) {
         switch (static_cast<N_Pokemon::PokemonChoice>(choice)) {
             case N_Pokemon::PokemonChoice::Charmander:
-                chosen_pokemon = N_Pokemon::Pokemon("Chamander", N_Pokemon::PokemonType::Fire, 100,100,10);
+                chosen_pokemon = N_Pokemon::Pokemon("Chamander", N_Pokemon::PokemonType::Fire, 100,10);
                 break;
             case N_Pokemon::PokemonChoice::Bulbasaur:
-                chosen_pokemon = N_Pokemon::Pokemon("Bulbasaur", N_Pokemon::PokemonType::Earth, 100,100,10);
+                chosen_pokemon = N_Pokemon::Pokemon("Bulbasaur", N_Pokemon::PokemonType::Earth, 100,10);
                 break;
             case N_Pokemon::PokemonChoice::Squirtle:
-                chosen_pokemon = N_Pokemon::Pokemon("Squirtle", N_Pokemon::PokemonType::Water, 100,100,14);
+                chosen_pokemon = N_Pokemon::Pokemon("Squirtle", N_Pokemon::PokemonType::Water, 100,14);
                 break;
             default:
-                chosen_pokemon = N_Pokemon::Pokemon("Pikachu", N_Pokemon::PokemonType::Electric, 100,100,35);
+                chosen_pokemon = N_Pokemon::Pokemon("Pikachu", N_Pokemon::PokemonType::Electric, 100,35);
                 break;
         }
     }

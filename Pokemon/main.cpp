@@ -5,7 +5,7 @@
 #include "include/Character/ProfessorOak.h"
 
 int main() {
-    N_Pokemon::Pokemon charmander("Charmander", N_Pokemon::PokemonType::Fire, 20,100,10);
+    N_Pokemon::Pokemon charmander("Charmander", N_Pokemon::PokemonType::Fire, 100,10);
     N_Characters::ProfessorOak professor("Professor Oak");
     N_Player::Player player("Ash", charmander);
     professor.greetPlayer(player);

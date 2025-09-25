@@ -50,7 +50,7 @@ namespace N_Characters {
         std::cin >> choice;
         p.choosePokemon(choice);
 
-        switch ((N_Pokemon::PokemonChoice) choice) {
+        switch (static_cast<N_Pokemon::PokemonChoice>(choice)) {
             case N_Pokemon::PokemonChoice::Charmander:
                 std::cout << Utils::getPrintName(p.name) << "I want Charmander" << std::endl;
                 std::cout << Utils::getPrintName(name) << "Charmander, an excellent choice!!" << std::endl;

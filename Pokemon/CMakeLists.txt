@@ -30,4 +30,10 @@ add_executable(Pokemon main.cpp
         src/Pokemon/Pokemons/Caterpie.cpp
         include/Pokemon/Pokemons/Zubat.h
         src/Pokemon/Pokemons/Zubat.cpp
+        include/Pokemon/Pokemons/Charmander.h
+        src/Pokemon/Pokemons/Charmander.cpp
+        include/Pokemon/Pokemons/Squirtle.h
+        src/Pokemon/Pokemons/Squirtle.cpp
+        include/Pokemon/Pokemons/Bulbasaur.h
+        src/Pokemon/Pokemons/Bulbasaur.cpp
 )

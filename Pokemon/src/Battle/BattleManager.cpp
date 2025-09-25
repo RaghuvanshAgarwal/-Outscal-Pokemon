@@ -16,7 +16,7 @@ namespace N_Battle {
         battle_state.is_player_turn = true;
         battle_state.has_battle_ended = false;
 
-        std::cout << wild_pokemon.name << " has appeared!" << std::endl;
+        std::cout << wild_pokemon.get_name() << " has appeared!" << std::endl;
         battle();
         handle_battle_outcome();
     }
@@ -36,9 +36,9 @@ namespace N_Battle {
 
     void BattleManager::handle_battle_outcome() const {
         if (battle_state.player_pokemon->is_fainted()) {
-            std::cout << battle_state.player_pokemon->name << " has fainted! You lose the battle" << std::endl;
+            std::cout << battle_state.player_pokemon->get_name() << " has fainted! You lose the battle" << std::endl;
         } else {
-            std::cout << "You defeated the wild " << battle_state.wild_pokemon->name << "!" << std::endl;
+            std::cout << "You defeated the wild " << battle_state.wild_pokemon->get_name() << "!" << std::endl;
         }
     }
 

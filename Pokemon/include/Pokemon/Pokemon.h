@@ -20,11 +20,14 @@ namespace N_Pokemon {
 
 
     public:
-        Pokemon(std::string p_name, PokemonType p_type, int p_health,int p_max_health, int p_attack_power);
+        Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attack_power);
         Pokemon();
         Pokemon(const Pokemon &pokemon);
 
         bool is_fainted() const;
+        std::string get_name() const {
+            return name;
+        }
         void attack(Pokemon& target) const;
         void take_damage(int damage);
         void heal();
