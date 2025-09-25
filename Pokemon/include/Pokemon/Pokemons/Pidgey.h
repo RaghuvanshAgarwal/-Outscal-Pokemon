@@ -9,10 +9,10 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Pidgey : public Pokemon {
+        void wing_attack(Pokemon &target);
 
-        public:
+    public:
         Pidgey();
-        void wing_attack(Pokemon& target);
     };
 }
 #endif //POKEMON_PIDGEY_H

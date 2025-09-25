@@ -9,9 +9,9 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Caterpie : public Pokemon {
-        public:
+        void bug_bite(Pokemon &target);
+    public:
         Caterpie();
-        void bug_bite(Pokemon& target);
     };
 }
 
