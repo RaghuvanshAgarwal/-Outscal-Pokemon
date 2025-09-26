@@ -4,18 +4,37 @@
 #include "../../../include/Pokemon/Pokemons/Pikachu.h"
 #include "../../../include/Pokemon/PokemonType.h"
 
+
 #include <iostream>
 #include <ostream>
+#include "../../../include/Utility/Utility.h"
 
 
 namespace N_Pokemon::N_Pokemons {
+    Pikachu::Pikachu() : Pokemon(
+        "Pikachu",
+        PokemonType::Electric,
+        100, {
+            {"Nuzzle", 7},
+            {"Thunder Bolt", 40},
+            {"Discharge", 15},
+        }) {}
 
-    Pikachu::Pikachu() : Pokemon("Pikachu", PokemonType::Electric, 100, 20) {
+    void Pikachu::attack(const Move* p_selected_move, Pokemon* target) {
+
+        if(p_selected_move->name == "THUNDER BOLT")
+        {
+            srand(time(NULL));
+            // 80% chance to hit
+            if (rand() % 100 < 80)
+            {
+                Pokemon::attack(p_selected_move, target);
+                std::cout << "... and it hit successfully!" << std::endl;
+            }
+            else
+                std::cout << "... but it missed!" << std::endl;
+        }
+        else
+            Pokemon::attack(p_selected_move, target);
     }
-
-    void Pikachu::thunder_shock(Pokemon &target) {
-        std::cout << name << " uses Thunder Shock on " << target.get_name() << "!" << std::endl;
-        target.take_damage(attack_power);
-    }
-
 }

@@ -3,16 +3,19 @@
 //
 #include "../../../include/Character/Player/Player.h"
 #include "../../../include/Pokemon/PokemonChoice.h"
-#include "../../../include/Pokemon/PokemonType.h"
 #include <iostream>
 
 #include "../../../include/Pokemon/Pokemon.h"
+#include "../../../include/Pokemon/Pokemons/Bulbasaur.h"
+#include "../../../include/Pokemon/Pokemons/Charmander.h"
+#include "../../../include/Pokemon/Pokemons/Pikachu.h"
+#include "../../../include/Pokemon/Pokemons/Squirtle.h"
 
 namespace N_Player {
-    Player::Player(std::string p_name, N_Pokemon::Pokemon p_chosen_pokemon) : name(p_name), chosen_pokemon(p_chosen_pokemon) {
+    Player::Player(std::string p_name) : name(p_name) {
     }
 
-    Player::Player() : name("Trainer"), chosen_pokemon(N_Pokemon::Pokemon()) {
+    Player::Player() : name("Trainer") {
     }
 
     Player::Player(const Player &player) : name(player.name), chosen_pokemon(player.chosen_pokemon) {
@@ -21,16 +24,16 @@ namespace N_Player {
     void Player::choosePokemon(int choice) {
         switch (static_cast<N_Pokemon::PokemonChoice>(choice)) {
             case N_Pokemon::PokemonChoice::Charmander:
-                chosen_pokemon = N_Pokemon::Pokemon("Chamander", N_Pokemon::PokemonType::Fire, 100,10);
+                chosen_pokemon = new N_Pokemon::N_Pokemons::Charmander();
                 break;
             case N_Pokemon::PokemonChoice::Bulbasaur:
-                chosen_pokemon = N_Pokemon::Pokemon("Bulbasaur", N_Pokemon::PokemonType::Earth, 100,10);
+                chosen_pokemon = new N_Pokemon::N_Pokemons::Bulbasaur();
                 break;
             case N_Pokemon::PokemonChoice::Squirtle:
-                chosen_pokemon = N_Pokemon::Pokemon("Squirtle", N_Pokemon::PokemonType::Water, 100,14);
+                chosen_pokemon = new N_Pokemon::N_Pokemons::Squirtle();
                 break;
             default:
-                chosen_pokemon = N_Pokemon::Pokemon("Pikachu", N_Pokemon::PokemonType::Electric, 100,35);
+                chosen_pokemon = new N_Pokemon::N_Pokemons::Pikachu();
                 break;
         }
     }

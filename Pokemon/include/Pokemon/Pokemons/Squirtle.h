@@ -9,10 +9,9 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Squirtle : public Pokemon {
-        void water_splash(Pokemon &target);
-
     public:
         Squirtle();
+       void attack(const Move* p_selected_move, Pokemon* target) override;
     };
 }
 

@@ -36,4 +36,5 @@ add_executable(Pokemon main.cpp
         src/Pokemon/Pokemons/Squirtle.cpp
         include/Pokemon/Pokemons/Bulbasaur.h
         src/Pokemon/Pokemons/Bulbasaur.cpp
+        include/Pokemon/Move.h
 )

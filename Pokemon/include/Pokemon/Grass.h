@@ -9,7 +9,7 @@
 namespace N_Pokemon {
     struct Grass {
         std::string environment_type;
-        std::vector<Pokemon> wild_pokemons;
+        std::vector<Pokemon*> wild_pokemons;
         int encounter_rate;
     };
 }

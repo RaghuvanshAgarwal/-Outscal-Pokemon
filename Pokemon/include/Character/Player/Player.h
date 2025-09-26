@@ -6,17 +6,17 @@
 #define POKEMON_PLAYER_H
 #include <string>
 
-#include "../../Pokemon/Pokemon.h"
+namespace N_Pokemon {
+    class Pokemon;
+}
 
 namespace N_Player {
     class Player {
     public:
         std::string name;
-        N_Pokemon::Pokemon chosen_pokemon;
+        N_Pokemon::Pokemon* chosen_pokemon = nullptr;
 
-        Player(std::string p_name, N_Pokemon::Pokemon p_chosen_pokemon);
-
-
+        Player(std::string p_name);
         Player();
 
         Player(const Player &player);

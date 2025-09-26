@@ -9,10 +9,9 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Pikachu : public Pokemon {
-        void thunder_shock(Pokemon &target);
-
     public:
         Pikachu();
+        void attack(const Move* p_selected_move, Pokemon* target) override;
     };
 }
 

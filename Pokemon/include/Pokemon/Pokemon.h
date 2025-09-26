@@ -6,31 +6,52 @@
 #define POKEMON_POKEMON_H
 
 #include <string>
-
-#include "PokemonType.h"
+#include <vector>
+#include "Move.h"
 
 namespace N_Pokemon {
+
+    enum class PokemonType;
+    struct Move;
+
     class Pokemon {
+
+        void print_available_moves();
+        int select_move();
+        void use_move(const Move& move, Pokemon& target);
     protected:
         std::string name;
         PokemonType type;
         int health;
         int max_health;
-        int attack_power = 0;
+        std::vector<Move> moves;
+        int reduced_damage;
+
+
 
 
     public:
-        Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attack_power);
+        Pokemon(std::string p_name, PokemonType p_type, int p_health, std::vector<Move> p_moves);
         Pokemon();
         Pokemon(const Pokemon &pokemon);
+        virtual  ~Pokemon() = default;
 
         bool is_fainted() const;
         std::string get_name() const {
             return name;
         }
-        void attack(Pokemon& target) const;
+        int get_health() const {
+            return health;
+        }
+        virtual void attack(const Move* p_selected_move, Pokemon* target);
         void take_damage(int damage);
         void heal();
+
+        void select_and_use_move(Pokemon* target);
+
+        void reduce_attack_power(int p_value);
+
+        void die();
     };
 }
 #endif //POKEMON_POKEMON_H

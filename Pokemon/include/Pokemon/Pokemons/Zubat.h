@@ -9,10 +9,9 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Zubat : public Pokemon {
-        void super_sonic(Pokemon &target);
-
     public:
         Zubat();
+        void attack(const Move* p_selected_move, Pokemon* target) override;
     };
 }
 
