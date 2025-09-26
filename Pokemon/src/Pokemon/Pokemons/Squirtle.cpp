@@ -3,6 +3,7 @@
 //
 
 #include "../../../include/Pokemon/Pokemons/Squirtle.h"
+#include "../../../include/Pokemon/PokemonType.h"
 
 #include <iostream>
 #include <ostream>
@@ -10,26 +11,26 @@
 
 
 namespace N_Pokemon::N_Pokemons {
-    Squirtle::Squirtle() : Pokemon("Squirtle", PokemonType::Water, 100,35) {
+    Squirtle::Squirtle()
+        : Pokemon(
+            "Squirtle",
+            PokemonType::Water, 100,
+            {
+                {"Rapid Spin", 5},
+                {"Rain Water", 4}
+            }) {
     }
 
-    void Squirtle::water_splash(Pokemon &target) {
-        std::cout << name << " uses Water Splash on " << target.get_name() << "!" << std::endl;
-        target.take_damage(attack_power);
-    }
-
-    void Squirtle::attack(Pokemon &target) {
-        std::cout << name << " uses Flame Thrower" << std::endl;
-        N_Utility::Utils::waitForEnter();
-        target.take_damage(attack_power);
-        if (target.is_fainted()) {
-            std::cout << target.get_name() << " fainted!" << std::endl;
+    void Squirtle::attack(const Move* p_selected_move, Pokemon* target) {
+        if (p_selected_move->name == "Rapid Spin") {
+            srand(time(NULL));
+            const int hit_time = 2 + (rand() % 3);
+            for (int i = 0; i < hit_time; i++) {
+                Pokemon::attack(p_selected_move, target);
+            }
+            std::cout << "... and hit " << hit_time << " times!n" << std::endl;
+        }else {
+            Pokemon::attack(p_selected_move, target);
         }
-        else {
-            std::cout << target.get_name() << " has " << target.get_health() << " HP Left!" << std::endl;
-        }
-        N_Utility::Utils::waitForEnter();
     }
-
-
 }

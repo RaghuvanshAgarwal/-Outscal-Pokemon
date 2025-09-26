@@ -25,7 +25,7 @@ namespace N_Battle {
     void BattleManager::battle() {
         while (!battle_state.has_battle_ended) {
             if (battle_state.is_player_turn) {
-                battle_state.player_pokemon->attack(*battle_state.wild_pokemon);
+                battle_state.player_pokemon->select_and_use_move(battle_state.wild_pokemon);
             }else {
                 battle_state.wild_pokemon->attack(*battle_state.player_pokemon);
             }

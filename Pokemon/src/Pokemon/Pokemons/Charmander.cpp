@@ -3,26 +3,29 @@
 //
 
 #include "../../../include/Pokemon/Pokemons/Charmander.h"
+#include "../../../include/Pokemon/PokemonType.h"
+
 #include <iostream>
 
 #include "../../../include/Utility/Utility.h"
 
 namespace N_Pokemon::N_Pokemons {
-    Charmander::Charmander() : Pokemon("Charmander", PokemonType::Fire, 100,35) {
-    }
+    Charmander::Charmander()
+        : Pokemon(
+            "Charmander",
+            PokemonType::Fire,
+            100, {
+                {"Ember", 13},
+                {"Fire Fang", 9},
+                {"Blazing Charge", 15}
+            }) {}
 
-    void Charmander::attack(Pokemon &target) {
-        std::cout << name << " uses Flame Thrower" << std::endl;
-        N_Utility::Utils::waitForEnter();
-        target.take_damage(attack_power);
-        if (target.is_fainted()) {
-            std::cout << target.get_name() << " fainted!" << std::endl;
+    void Charmander::attack(const Move* p_selected_move, Pokemon* target) {
+        Pokemon::attack(p_selected_move, target);
+        if (p_selected_move->name == "Blazing Charge") {
+            take_damage(10);
+            std::cout << name << " takes 10 recoil damage from the Blazing Charge!\n";
+            N_Utility::Utils::waitForEnter();
         }
-        else {
-            std::cout << target.get_name() << " has " << target.get_health() << " HP Left!" << std::endl;
-        }
-        N_Utility::Utils::waitForEnter();
     }
-
-
 }

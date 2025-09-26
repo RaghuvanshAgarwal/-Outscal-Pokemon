@@ -11,7 +11,7 @@ namespace N_Pokemon::N_Pokemons {
     class Charmander : public Pokemon {
     public:
         Charmander();
-        void attack(Pokemon &target) override;
+        void attack(const Move* p_selected_move, Pokemon* target) override;
     };
 }
 #endif

@@ -9,11 +9,9 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Bulbasaur : public Pokemon {
-        void vine_whip(Pokemon& target);
-
     public:
         Bulbasaur();
-        void attack(Pokemon &target) override;
+        void attack(const Move* p_selected_move, Pokemon* target) override;
     };
 }
 

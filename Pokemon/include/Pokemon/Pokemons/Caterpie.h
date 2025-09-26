@@ -9,10 +9,9 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Caterpie : public Pokemon {
-        void bug_bite(Pokemon &target);
     public:
         Caterpie();
-        void attack(Pokemon &target) override;
+        void attack(const Move* p_selected_move, Pokemon* target) override;
     };
 }
 

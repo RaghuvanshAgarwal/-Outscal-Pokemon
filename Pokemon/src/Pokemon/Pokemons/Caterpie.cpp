@@ -3,25 +3,28 @@
 //
 
 #include "../../../include/Pokemon/Pokemons/Caterpie.h"
+#include "../../../include/Pokemon/PokemonType.h"
 #include "../../../include/Utility/Utility.h"
 
 #include <iostream>
 
 namespace N_Pokemon::N_Pokemons {
-    Caterpie::Caterpie(): Pokemon("Caterpie", PokemonType::Bug,100,10) {
+    Caterpie::Caterpie() : Pokemon(
+        "Caterpie",
+        PokemonType::Bug,
+        100,
+        {
+            {"Sticky Web", 10},
+            {"Bug Bite", 12}
+        }) {
     }
 
-    void Caterpie::attack(Pokemon &target) {
-        std::cout << name << " uses Bug Bite" << std::endl;
-        N_Utility::Utils::waitForEnter();
-        target.take_damage(attack_power);
-        if (target.is_fainted()) {
-            std::cout << target.get_name() << " fainted!" << std::endl;
+    void Caterpie::attack(const Move* p_selected_move, Pokemon* target) {
+        Pokemon::attack(p_selected_move, target);
+        if (p_selected_move->name == "Sticky Web") {
+            int reduced_damage = 5;
+            target->reduce_attack_power(reduced_damage);
+            std::cout << target->get_name() << "'s next attack will be reduced by " << reduced_damage << " damage!\n";
         }
-        else {
-            std::cout << target.get_name() << " has " << target.get_health() << " HP Left!" << std::endl;
-        }
-        N_Utility::Utils::waitForEnter();
     }
-
 }

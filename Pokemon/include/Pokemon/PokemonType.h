@@ -12,7 +12,7 @@ namespace N_Pokemon {
         Earth,
         Normal,
         Bug,
-        Posion,
+        Poison,
         Rock,
         Grass
     };

@@ -8,21 +8,28 @@
 #include "../../../include/Utility/Utility.h"
 
 namespace N_Pokemon::N_Pokemons {
-    Pidgey::Pidgey() : Pokemon("Pidgey", PokemonType::Normal, 100,35) {
+    Pidgey::Pidgey()
+        : Pokemon(
+            "Pidgey",
+            PokemonType::Normal,
+            100,
+            {
+                {"Tackle", 8},
+                {"Quick Attack", 20},
+                {"Whirlwind", 15}
+            }) {
     }
 
-    void Pidgey::attack(Pokemon &target) {
-        std::cout << name << " uses Wing Attack" << std::endl;
-        N_Utility::Utils::waitForEnter();
-        target.take_damage(attack_power);
-        if (target.is_fainted()) {
-            std::cout << target.get_name() << " fainted!" << std::endl;
+    void Pidgey::attack(const Move* p_selected_move, Pokemon* target) {
+        Pokemon::attack(p_selected_move, target);
+        if (p_selected_move->name == "Whirlwind") {
+            srand(time(NULL));
+            const int random = rand() % 10;
+            if (random < 2) {
+                target->die();
+            }
+            std::cout <<"... and blew the opponent away!\n";
+            N_Utility::Utils::waitForEnter();
         }
-        else {
-            std::cout << target.get_name() << " has " << target.get_health() << " HP Left!" << std::endl;
-        }
-        N_Utility::Utils::waitForEnter();
     }
-
-
 }
