@@ -18,4 +18,9 @@ namespace N_Pokemon::N_Pokemons {
         target.take_damage(attack_power);
     }
 
+    void Pikachu::attack(Pokemon &target) {
+        thunder_shock(target);
+    }
+
+
 }

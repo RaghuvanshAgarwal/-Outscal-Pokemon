@@ -13,6 +13,7 @@ namespace N_Pokemon::N_Pokemons {
 
     public:
         Charmander();
+        void attack(Pokemon &target) override;
     };
 }
 #endif

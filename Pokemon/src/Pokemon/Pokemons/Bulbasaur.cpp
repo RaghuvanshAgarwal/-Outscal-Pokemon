@@ -14,4 +14,9 @@ namespace N_Pokemon::N_Pokemons {
         std::cout<< name << " uses vine whips on " << target.get_name() << "!" <<std::endl;
     }
 
+    void Bulbasaur::attack(Pokemon &target) {
+        vine_whip(target);
+    }
+
+
 }

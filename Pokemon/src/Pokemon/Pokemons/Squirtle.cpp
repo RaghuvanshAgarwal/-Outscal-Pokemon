@@ -18,5 +18,9 @@ namespace N_Pokemon::N_Pokemons {
         target.take_damage(attack_power);
     }
 
+    void Squirtle::attack(Pokemon &target) {
+        water_splash(target);
+    }
+
 
 }

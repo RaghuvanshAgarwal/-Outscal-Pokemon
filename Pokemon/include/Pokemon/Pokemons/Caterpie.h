@@ -12,6 +12,7 @@ namespace N_Pokemon::N_Pokemons {
         void bug_bite(Pokemon &target);
     public:
         Caterpie();
+        void attack(Pokemon &target) override;
     };
 }
 

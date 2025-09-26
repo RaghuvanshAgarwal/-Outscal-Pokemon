@@ -15,4 +15,9 @@ namespace N_Pokemon::N_Pokemons {
         target.take_damage(attack_power);
     }
 
+    void Charmander::attack(Pokemon &target) {
+        flame_burst(target);
+    }
+
+
 }

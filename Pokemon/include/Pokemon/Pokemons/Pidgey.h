@@ -13,6 +13,7 @@ namespace N_Pokemon::N_Pokemons {
 
     public:
         Pidgey();
+        void attack(Pokemon &target) override;
     };
 }
 #endif //POKEMON_PIDGEY_H

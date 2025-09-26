@@ -14,4 +14,9 @@ namespace N_Pokemon::N_Pokemons {
         std::cout << name << " uses bug bite on " << target.get_name() << "!" << std::endl;
         target.take_damage(attack_power);
     }
+
+    void Caterpie::attack(Pokemon &target) {
+        bug_bite(target);
+    }
+
 }

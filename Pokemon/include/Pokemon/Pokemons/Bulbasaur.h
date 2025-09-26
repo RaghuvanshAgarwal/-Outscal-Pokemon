@@ -13,6 +13,7 @@ namespace N_Pokemon::N_Pokemons {
 
     public:
         Bulbasaur();
+        void attack(Pokemon &target) override;
     };
 }
 

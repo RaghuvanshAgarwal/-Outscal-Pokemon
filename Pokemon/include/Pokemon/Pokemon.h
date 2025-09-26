@@ -28,7 +28,7 @@ namespace N_Pokemon {
         std::string get_name() const {
             return name;
         }
-        void attack(Pokemon& target) const;
+        virtual  void attack(Pokemon& target) = 0;
         void take_damage(int damage);
         void heal();
     };
