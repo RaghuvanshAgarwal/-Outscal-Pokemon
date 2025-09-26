@@ -9,8 +9,6 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Charmander : public Pokemon {
-        void flame_burst(Pokemon &target);
-
     public:
         Charmander();
         void attack(Pokemon &target) override;

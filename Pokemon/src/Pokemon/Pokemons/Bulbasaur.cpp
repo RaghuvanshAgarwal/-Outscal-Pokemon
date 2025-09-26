@@ -3,19 +3,24 @@
 //
 
 #include "../../../include/Pokemon/Pokemons/Bulbasaur.h"
-#include "../../../include/Pokemon/PokemonType.h"
 #include <iostream>
+#include "../../../include/Utility/Utility.h"
 
 namespace N_Pokemon::N_Pokemons {
     Bulbasaur::Bulbasaur() : Pokemon("Bulbasaur", PokemonType::Grass, 100,35) {
     }
 
-    void Bulbasaur::vine_whip(Pokemon& target) {
-        std::cout<< name << " uses vine whips on " << target.get_name() << "!" <<std::endl;
-    }
-
     void Bulbasaur::attack(Pokemon &target) {
-        vine_whip(target);
+        std::cout << name << " uses Vine Whips" << std::endl;
+        N_Utility::Utils::waitForEnter();
+        target.take_damage(attack_power);
+        if (target.is_fainted()) {
+            std::cout << target.get_name() << " fainted!" << std::endl;
+        }
+        else {
+            std::cout << target.get_name() << " has " << target.get_health() << " HP Left!" << std::endl;
+        }
+        N_Utility::Utils::waitForEnter();
     }
 
 

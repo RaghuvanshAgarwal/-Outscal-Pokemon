@@ -9,8 +9,7 @@
 
 namespace N_Pokemon::N_Pokemons {
     class Pidgey : public Pokemon {
-        void wing_attack(Pokemon &target);
-
+    
     public:
         Pidgey();
         void attack(Pokemon &target) override;

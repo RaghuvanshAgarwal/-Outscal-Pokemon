@@ -13,8 +13,10 @@ namespace N_Main {
     class Game {
     public:
         N_Pokemon::Grass forest_grass;
+        N_Pokemon::Pokemon* wild_pokemon;
 
         Game();
+        ~Game();
         void gameLoop(N_Player::Player& player);
     };
 }

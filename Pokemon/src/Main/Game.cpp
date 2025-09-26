@@ -29,6 +29,11 @@ namespace N_Main {
         };
     }
 
+    Game::~Game() {
+        delete wild_pokemon;
+    }
+
+
 
     void Game::gameLoop(N_Player::Player &player) {
         int choice;
@@ -53,7 +58,7 @@ namespace N_Main {
                 case 1: {
                     N_Battle::WildEncounterManager encounter_manager;
                     N_Battle::BattleManager battle_manager{};
-                    N_Pokemon::Pokemon *wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
+                    wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
                     battle_manager.start_battle(player, *wild_pokemon);
                 }
                 break;

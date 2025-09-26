@@ -23,10 +23,14 @@ namespace N_Pokemon {
         Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attack_power);
         Pokemon();
         Pokemon(const Pokemon &pokemon);
+        virtual  ~Pokemon() = default;
 
         bool is_fainted() const;
         std::string get_name() const {
             return name;
+        }
+        int get_health() const {
+            return health;
         }
         virtual void attack(Pokemon& target) = 0;
         void take_damage(int damage);

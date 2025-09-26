@@ -3,7 +3,7 @@
 //
 
 #include "../../../include/Pokemon/Pokemons/Zubat.h"
-#include "../../../include/Pokemon/PokemonType.h"
+#include "../../../include/Utility/Utility.h"
 #include <iostream>
 
 namespace N_Pokemon::N_Pokemons {
@@ -16,7 +16,16 @@ namespace N_Pokemon::N_Pokemons {
     }
 
     void Zubat::attack(Pokemon &target) {
-        super_sonic(target);
+        std::cout << name << " uses Flame Thrower" << std::endl;
+        N_Utility::Utils::waitForEnter();
+        target.take_damage(attack_power);
+        if (target.is_fainted()) {
+            std::cout << target.get_name() << " fainted!" << std::endl;
+        }
+        else {
+            std::cout << target.get_name() << " has " << target.get_health() << " HP Left!" << std::endl;
+        }
+        N_Utility::Utils::waitForEnter();
     }
 
 
