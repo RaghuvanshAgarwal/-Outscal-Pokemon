@@ -4,10 +4,7 @@
 
 #include "../../include/Battle/WildEncounterManager.h"
 
-#include <cstdlib>
-#include <ctime>
 #include <__locale>
-#include "../../include/Pokemon/Pokemon.h"
 #include "../../include/Pokemon/Grass.h"
 
 namespace N_Battle {
@@ -15,7 +12,7 @@ namespace N_Battle {
         srand(time(nullptr));
     }
 
-    N_Pokemon::Pokemon WildEncounterManager::getRandomPokemonFromGrass(const N_Pokemon::Grass &grass) {
+    N_Pokemon::Pokemon* WildEncounterManager::getRandomPokemonFromGrass(N_Pokemon::Grass &grass) {
         const int randomIndex = rand() % grass.wild_pokemons.size();
         return grass.wild_pokemons[randomIndex];
     }

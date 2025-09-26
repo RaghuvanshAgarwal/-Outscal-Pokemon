@@ -12,7 +12,7 @@
 namespace N_Battle {
     void BattleManager::start_battle(N_Player::Player &player, N_Pokemon::Pokemon &wild_pokemon) {
         battle_state.wild_pokemon = &wild_pokemon;
-        battle_state.player_pokemon = &player.chosen_pokemon;
+        battle_state.player_pokemon = player.chosen_pokemon;
         battle_state.is_player_turn = true;
         battle_state.has_battle_ended = false;
 

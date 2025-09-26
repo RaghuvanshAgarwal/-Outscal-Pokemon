@@ -12,11 +12,6 @@ namespace N_Pokemon {
     Pokemon::Pokemon(): name("Unknow"), type(PokemonType::Normal), health(100), max_health(100), attack_power(0) {}
     Pokemon::Pokemon(const Pokemon &pokemon) : name(pokemon.name), type(pokemon.type), health(pokemon.health), max_health(pokemon.health), attack_power(pokemon.attack_power) {}
 
-    void Pokemon::attack(Pokemon& target) const {
-        const int damage = attack_power;
-        target.take_damage(damage);
-    }
-
     void Pokemon::take_damage(int damage) {
         health -= damage;
         if (health <= 0) {

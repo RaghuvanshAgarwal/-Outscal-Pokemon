@@ -16,7 +16,7 @@ namespace N_Pokemon::N_Pokemons {
     }
 
     void Pidgey::attack(Pokemon &target) {
-        wing_attack();
+        wing_attack(target);
     }
 
 

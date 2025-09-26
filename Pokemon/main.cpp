@@ -1,7 +1,6 @@
  #include "include/Main/Game.h"
 #include "include/Utility/Utility.h"
 #include "include/Character/Player/Player.h"
-#include "include/Pokemon/Pokemon.h"
 #include "include/Character/ProfessorOak.h"
 
 int main() {
