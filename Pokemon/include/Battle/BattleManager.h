@@ -23,7 +23,7 @@ namespace N_Battle {
         void handle_battle_outcome() const;
         void update_battle_state();
     public:
-        void start_battle(N_Player::Player& player, N_Pokemon::Pokemon& wild_pokemon);
+        void start_battle(N_Player::Player* player, N_Pokemon::Pokemon* wild_pokemon);
 
     };
 }

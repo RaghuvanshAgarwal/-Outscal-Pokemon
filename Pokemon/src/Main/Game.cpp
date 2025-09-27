@@ -35,7 +35,7 @@ namespace N_Main {
 
 
 
-    void Game::gameLoop(N_Player::Player &player) {
+    void Game::gameLoop(N_Player::Player *player) {
         int choice;
         bool keepPlaying = true;
 
@@ -44,7 +44,7 @@ namespace N_Main {
             N_Utility::Utils::clearScreen();
 
             // Display options to the player
-            std::cout << "\nWhat would you like to do next, " << player.name << "?\n";
+            std::cout << "\nWhat would you like to do next, " << *player->get_name() << "?\n";
             std::cout << "1. Battle Wild Pokémon\n";
             std::cout << "2. Visit PokeCenter\n";
             std::cout << "3. Challenge Gyms\n";
@@ -58,14 +58,14 @@ namespace N_Main {
                 case 1: {
                     N_Battle::WildEncounterManager encounter_manager;
                     N_Battle::BattleManager battle_manager{};
-                    wild_pokemon = encounter_manager.getRandomPokemonFromGrass(forest_grass);
-                    battle_manager.start_battle(player, *wild_pokemon);
+                    wild_pokemon = encounter_manager.getRandomPokemonFromGrass(&forest_grass);
+                    battle_manager.start_battle(player, wild_pokemon);
                 }
                 break;
                 case 2:
                     std::cout << "You have reached the PokeCenter" << std::endl;
-                    player.chosen_pokemon->heal();
-                    std::cout << player.chosen_pokemon->get_name() << " has fully healed" << std::endl;
+                    player->get_chosen_pokemon()->heal();
+                    std::cout << player->get_chosen_pokemon()->get_name() << " has fully healed" << std::endl;
                     break;
                 case 3:
                     std::cout <<
@@ -98,6 +98,6 @@ namespace N_Main {
             N_Utility::Utils::waitForEnter();
         }
 
-        std::cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+        std::cout << "Goodbye, " << player->get_name() << "! Thanks for playing!\n";
     }
 }

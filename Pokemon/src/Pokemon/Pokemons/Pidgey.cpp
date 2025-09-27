@@ -27,8 +27,8 @@ namespace N_Pokemon::N_Pokemons {
             const int random = rand() % 10;
             if (random < 2) {
                 target->die();
+                std::cout <<"... and blew the opponent away!\n";
             }
-            std::cout <<"... and blew the opponent away!\n";
             N_Utility::Utils::waitForEnter();
         }
     }

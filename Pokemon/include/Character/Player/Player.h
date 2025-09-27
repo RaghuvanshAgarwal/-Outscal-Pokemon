@@ -12,16 +12,28 @@ namespace N_Pokemon {
 
 namespace N_Player {
     class Player {
-    public:
         std::string name;
         N_Pokemon::Pokemon* chosen_pokemon = nullptr;
+    public:
 
         Player(std::string p_name);
         Player();
 
         Player(const Player &player);
 
-        void choosePokemon(int choice);
+        void choose_pokemon(int choice);
+
+        const std::string* get_name() const {
+            return &name;
+        }
+
+        void set_name(const std::string& p_name) {
+            name = p_name;
+        }
+
+        N_Pokemon::Pokemon* get_chosen_pokemon() const {
+            return chosen_pokemon;
+        }
     };
 }
 #endif //POKEMON_PLAYER_H

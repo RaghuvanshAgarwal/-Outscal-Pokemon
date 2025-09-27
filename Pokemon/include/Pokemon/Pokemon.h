@@ -18,7 +18,7 @@ namespace N_Pokemon {
 
         void print_available_moves();
         int select_move();
-        void use_move(const Move& move, Pokemon& target);
+
     protected:
         std::string name;
         PokemonType type;
@@ -52,6 +52,9 @@ namespace N_Pokemon {
         void reduce_attack_power(int p_value);
 
         void die();
+
+        const Move* get_random_move() const;
+        void use_move(const Move* move, Pokemon* target);
     };
 }
 #endif //POKEMON_POKEMON_H

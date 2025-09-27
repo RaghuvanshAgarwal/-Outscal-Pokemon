@@ -10,12 +10,12 @@ import <windows.h>
 #endif
 
 namespace N_Utility {
-    std::string Utils::getPrintName(const std::string &name) {
-        return "[" + name + "] ";
+    std::string Utils::getPrintName(const std::string *name) {
+        return "[" + *name + "] ";
     }
 
-    void Utils::info(const std::string &info) {
-        std::cout << "[INFO] " << info << std::endl;
+    void Utils::info(const std::string *info) {
+        std::cout << "[INFO] " << *info << std::endl;
     }
 
     void Utils::waitForEnter() {

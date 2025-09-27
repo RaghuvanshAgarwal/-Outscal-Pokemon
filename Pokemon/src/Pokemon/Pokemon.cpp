@@ -60,7 +60,7 @@ namespace N_Pokemon {
     void Pokemon::select_and_use_move(Pokemon *target) {
         print_available_moves();
         int choice = select_move();
-        use_move(moves[choice-1], *target);
+        use_move(&moves[choice-1], target);
     }
 
     void Pokemon::reduce_attack_power(int p_value) {
@@ -71,15 +71,20 @@ namespace N_Pokemon {
         health = 0;
     }
 
-    void Pokemon::use_move(const Move& move, Pokemon& target) {
-        std::cout << name << " used " << move.name << "!\n";
+    const Move * Pokemon::get_random_move() const {
+        srand(time(NULL));
+        return &moves[rand() % moves.size()];
+    }
+
+    void Pokemon::use_move(const Move* move, Pokemon* target) {
+        std::cout << name << " used " << move->name << "!\n";
         N_Utility::Utils::waitForEnter();
-        attack(&move, &target);
-        if (target.is_fainted()) {
-            std::cout << target.get_name() << " fainted!" << std::endl;
+        attack(move, target);
+        if (target->is_fainted()) {
+            std::cout << target->get_name() << " fainted!" << std::endl;
         }
         else {
-            std::cout << target.get_name() << " has " << target.get_health() << " HP Left!" << std::endl;
+            std::cout << target->get_name() << " has " << target->get_health() << " HP Left!" << std::endl;
         }
         N_Utility::Utils::waitForEnter();
     }
