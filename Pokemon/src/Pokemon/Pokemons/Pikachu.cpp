@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <ostream>
+
+#include "../../../include/Pokemon/Status Effects/StatusEffectType.h"
 #include "../../../include/Utility/Utility.h"
 
 
@@ -36,5 +38,11 @@ namespace N_Pokemon::N_Pokemons {
         }
         else
             Pokemon::attack(p_selected_move, target);
+
+        if(p_selected_move->name == "DISCHARGE") {
+            if (target->can_apply_effect()) {
+                target->apply_effect(N_Status_Effect::StatusEffectType::Paralyzed);
+            }
+        }
     }
 }

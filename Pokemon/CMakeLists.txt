@@ -38,4 +38,7 @@ add_executable(Pokemon main.cpp
         src/Pokemon/Pokemons/Bulbasaur.cpp
         include/Pokemon/Move.h
         include/Pokemon/IStatusEffect.h
+        "include/Pokemon/Status Effects/ParalyzedEffect.h"
+        "src/Pokemon/Status Effects/ParalyzedEffect.cpp"
+        "include/Pokemon/Status Effects/StatusEffectType.h"
 )

@@ -15,7 +15,7 @@ namespace N_Pokemon {
     public:
         virtual void apply_effect(Pokemon* target) = 0;
         virtual std::string get_status_name() const = 0;
-        virtual bool turn_end_effect(Pokemon* target) const = 0;
+        virtual bool turn_end_effect(Pokemon* target) = 0;
         virtual void clear_effect(Pokemon* target) = 0;
         virtual ~IStatusEffect() = default;
     };

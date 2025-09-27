@@ -19,21 +19,22 @@ namespace N_Battle {
 
         std::cout << wild_pokemon->get_name() << " has appeared!" << std::endl;
         battle();
-        handle_battle_outcome();
+
     }
 
 
     void BattleManager::battle() {
         while (!battle_state.has_battle_ended) {
-            if (battle_state.is_player_turn) {
+            if (battle_state.is_player_turn && battle_state.player_pokemon->can_attack()) {
                 battle_state.player_pokemon->select_and_use_move(battle_state.wild_pokemon);
-            }else {
+            }else if (battle_state.wild_pokemon->can_attack()) {
                 const N_Pokemon::Move* move = battle_state.wild_pokemon->get_random_move();
                 battle_state.wild_pokemon->use_move(move, battle_state.player_pokemon);
             }
             update_battle_state();
             battle_state.is_player_turn = !battle_state.is_player_turn;
         }
+        handle_battle_outcome();
     }
 
     void BattleManager::handle_battle_outcome() const {
