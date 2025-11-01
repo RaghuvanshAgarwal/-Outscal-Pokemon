@@ -9,8 +9,8 @@
 namespace N_Utility {
     class Utils {
     public:
-        static std::string getPrintName(const std::string &name);
-        static void info(const std::string &info);
+        static std::string getPrintName(const std::string *name);
+        static void info(const std::string *info);
         static void waitForEnter();
         static void clearScreen();
         static void clearInputBuffer();

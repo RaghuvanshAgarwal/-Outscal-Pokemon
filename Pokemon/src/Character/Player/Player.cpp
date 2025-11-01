@@ -21,7 +21,7 @@ namespace N_Player {
     Player::Player(const Player &player) : name(player.name), chosen_pokemon(player.chosen_pokemon) {
     }
 
-    void Player::choosePokemon(int choice) {
+    void Player::choose_pokemon(int choice) {
         switch (static_cast<N_Pokemon::PokemonChoice>(choice)) {
             case N_Pokemon::PokemonChoice::Charmander:
                 chosen_pokemon = new N_Pokemon::N_Pokemons::Charmander();

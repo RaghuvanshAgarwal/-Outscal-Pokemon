@@ -19,11 +19,11 @@ namespace N_Characters {
 
         ProfessorOak();
 
-        void greetPlayer(N_Player::Player &p) const;
+        void greetPlayer(N_Player::Player *p) const;
 
-        void offerPokemonChoices(N_Player::Player &p) const;
+        void offerPokemonChoices(N_Player::Player *p) const;
 
-        void explainMainQuest(const N_Player::Player &p) const;
+        void explainMainQuest(const N_Player::Player *p) const;
     };
 }
 #endif //POKEMON_PROFESSOROAK_H

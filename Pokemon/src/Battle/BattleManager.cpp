@@ -7,31 +7,34 @@
 #include <iostream>
 #include "../../include/Character/Player/Player.h"
 #include "../../include/Pokemon/Pokemon.h"
+#include "../../include/Utility/Utility.h"
 
 
 namespace N_Battle {
-    void BattleManager::start_battle(N_Player::Player &player, N_Pokemon::Pokemon &wild_pokemon) {
-        battle_state.wild_pokemon = &wild_pokemon;
-        battle_state.player_pokemon = player.chosen_pokemon;
+    void BattleManager::start_battle(N_Player::Player *player, N_Pokemon::Pokemon *wild_pokemon) {
+        battle_state.wild_pokemon = wild_pokemon;
+        battle_state.player_pokemon = player->get_chosen_pokemon();
         battle_state.is_player_turn = true;
         battle_state.has_battle_ended = false;
 
-        std::cout << wild_pokemon.get_name() << " has appeared!" << std::endl;
+        std::cout << wild_pokemon->get_name() << " has appeared!" << std::endl;
         battle();
-        handle_battle_outcome();
+
     }
 
 
     void BattleManager::battle() {
         while (!battle_state.has_battle_ended) {
-            if (battle_state.is_player_turn) {
+            if (battle_state.is_player_turn && battle_state.player_pokemon->can_attack()) {
                 battle_state.player_pokemon->select_and_use_move(battle_state.wild_pokemon);
-            }else {
-                battle_state.wild_pokemon->attack(*battle_state.player_pokemon);
+            }else if (battle_state.wild_pokemon->can_attack()) {
+                const N_Pokemon::Move* move = battle_state.wild_pokemon->get_random_move();
+                battle_state.wild_pokemon->use_move(move, battle_state.player_pokemon);
             }
             update_battle_state();
             battle_state.is_player_turn = !battle_state.is_player_turn;
         }
+        handle_battle_outcome();
     }
 
     void BattleManager::handle_battle_outcome() const {

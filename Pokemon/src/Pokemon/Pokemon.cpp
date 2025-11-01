@@ -5,7 +5,10 @@
 #include "../../include/Pokemon/Pokemon.h"
 #include <iostream>
 
+#include "../../include/Pokemon/IStatusEffect.h"
 #include "../../include/Pokemon/PokemonType.h"
+#include "../../include/Pokemon/Status Effects/ParalyzedEffect.h"
+#include "../../include/Pokemon/Status Effects/StatusEffectType.h"
 #include "../../include/Utility/Utility.h"
 
 namespace N_Pokemon {
@@ -60,31 +63,66 @@ namespace N_Pokemon {
     void Pokemon::select_and_use_move(Pokemon *target) {
         print_available_moves();
         int choice = select_move();
-        use_move(moves[choice-1], *target);
+        use_move(&moves[choice-1], target);
     }
 
     void Pokemon::reduce_attack_power(int p_value) {
-        reduced_damage = p_value;
+        for(int i=0; i<moves.size(); i++)
+        {
+            moves[i].power -= p_value;
+            if(moves[i].power < 0)
+                moves[i].power = 0;
+        }
     }
 
     void Pokemon::die() {
         health = 0;
     }
 
-    void Pokemon::use_move(const Move& move, Pokemon& target) {
-        std::cout << name << " used " << move.name << "!\n";
+    const Move * Pokemon::get_random_move() const {
+        srand(time(NULL));
+        return &moves[rand() % moves.size()];
+    }
+
+    void Pokemon::use_move(const Move* move, Pokemon* target) {
+        std::cout << name << " used " << move->name << "!\n";
         N_Utility::Utils::waitForEnter();
-        attack(&move, &target);
-        if (target.is_fainted()) {
-            std::cout << target.get_name() << " fainted!" << std::endl;
+        attack(move, target);
+        if (target->is_fainted()) {
+            std::cout << target->get_name() << " fainted!" << std::endl;
         }
         else {
-            std::cout << target.get_name() << " has " << target.get_health() << " HP Left!" << std::endl;
+            std::cout << target->get_name() << " has " << target->get_health() << " HP Left!" << std::endl;
         }
         N_Utility::Utils::waitForEnter();
     }
 
+    bool Pokemon::can_apply_effect() const {
+        return applied_effect == nullptr;
+    }
 
+    void Pokemon::clear_effect() {
+        applied_effect = nullptr;
+    }
+
+    void Pokemon::apply_effect(N_Status_Effect::StatusEffectType effect) {
+        switch (effect) {
+            case N_Status_Effect::StatusEffectType::Paralyzed:
+                applied_effect = new N_Status_Effects::ParalyzedEffect();
+                applied_effect->apply_effect(this);
+                break;
+            default:
+                std::cout << "Unknown effect." << std::endl;
+                break;
+        }
+    }
+
+    bool Pokemon::can_attack() {
+        if (applied_effect == nullptr) {
+            return true;
+        }
+        return applied_effect ->turn_end_effect(this);
+    }
 }
 
 

@@ -9,6 +9,16 @@
 #include <vector>
 #include "Move.h"
 
+#include
+
+namespace N_Pokemon::N_Status_Effect {
+    enum class StatusEffectType;
+}
+
+namespace N_Pokemon {
+    class IStatusEffect;
+}
+
 namespace N_Pokemon {
 
     enum class PokemonType;
@@ -18,19 +28,20 @@ namespace N_Pokemon {
 
         void print_available_moves();
         int select_move();
-        void use_move(const Move& move, Pokemon& target);
+
     protected:
         std::string name;
         PokemonType type;
         int health;
         int max_health;
         std::vector<Move> moves;
-        int reduced_damage;
 
 
 
 
     public:
+        IStatusEffect* applied_effect;
+
         Pokemon(std::string p_name, PokemonType p_type, int p_health, std::vector<Move> p_moves);
         Pokemon();
         Pokemon(const Pokemon &pokemon);
@@ -52,6 +63,16 @@ namespace N_Pokemon {
         void reduce_attack_power(int p_value);
 
         void die();
+
+        const Move* get_random_move() const;
+        void use_move(const Move* move, Pokemon* target);
+
+        bool can_apply_effect() const;
+        void clear_effect();
+        void apply_effect(N_Status_Effect::StatusEffectType effect);
+
+        bool can_attack();
+
     };
 }
 #endif //POKEMON_POKEMON_H

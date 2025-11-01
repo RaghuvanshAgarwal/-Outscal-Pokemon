@@ -17,7 +17,7 @@ namespace N_Main {
 
         Game();
         ~Game();
-        void gameLoop(N_Player::Player& player);
+        void gameLoop(N_Player::Player* player);
     };
 }
 
